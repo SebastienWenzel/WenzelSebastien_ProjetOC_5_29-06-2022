@@ -51,14 +51,14 @@ function addCart(){
     const quantity = document.querySelector('#quantity');
 
     btnAdd.addEventListener('click', () => {
-        //color.value !== "" && quantity.value > 1 && quantity.value < 100)
+        //color.value !== "" && (quantity.value > 1 && quantity.value < 100))
         if (!color.value){
             alert('veuillez choisir une couleur');
             return;
         }
         if(quantity.value < 1 || quantity.value > 100) {
             alert('veuillez choisir entre 1 et 100');
-            return
+            return;
 
         }
                  

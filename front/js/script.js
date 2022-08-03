@@ -43,8 +43,7 @@ async function getArticle() {
             h3.textContent = getProduct[i].name;
             p.classList.add("productDescription");
             p.textContent = getProduct[i].description;
-            //affichage des produits dans la page accueil 3000
-            
+            //affichage des produits dans la page accueil
         }
     }
     catch (err) {
