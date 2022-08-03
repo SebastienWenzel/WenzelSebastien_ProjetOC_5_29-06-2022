@@ -14,7 +14,8 @@ async function getArticle() {
         //sélection élément contenant ID items
         
         for (i = 0; i < getProduct.length; i++) {
-        //console.log(i); boucle fonctionne
+        
+            //Injection des données des produits dans la page HTML
 
             const hyperlien = document.createElement("a");
             const article = document.createElement("article");
@@ -30,20 +31,19 @@ async function getArticle() {
             items.append(hyperlien);
             hyperlien.append(article);
             article.append(image,h3,p);
+
             //Création des balises dans le HTMl dans une boucle contenant 8 produit
 
             hyperlien.href =`./product.html?id=${getProduct[i]._id} `
             
-            //SOUCIS APPARAITRE LA SOURCE ET ALT
             image.alt = getProduct[i].altTxt;
-            image.src = getProduct[i].imageURL;
+            image.src = getProduct[i].imageUrl;
             
             h3.classList.add("productName");
-            h3.textContent = getProduct[i].altTxt;
+            h3.textContent = getProduct[i].name;
             p.classList.add("productDescription");
             p.textContent = getProduct[i].description;
             //affichage des produits dans la page accueil
-            
         }
     }
     catch (err) {
