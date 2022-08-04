@@ -99,6 +99,3 @@ function addCart(){
 };
 
 
-
-console.log(productObjet);
-
