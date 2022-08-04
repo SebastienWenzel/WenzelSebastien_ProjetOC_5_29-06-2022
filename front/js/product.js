@@ -68,6 +68,7 @@ function addCart(){
                 quantity:parseInt(quantity.value)
                 //changer chaîne de caractère to number
             } 
+            
             // Mise à disposition du localStorage si existant
             let productLocalStorage = JSON.parse(localStorage.getItem("users"));
 
@@ -79,7 +80,7 @@ function addCart(){
             } else {
                 // Comportement si il existe des données dans le localStorage
 
-                // Condition si le produit comporte le même Id et la même couleur. Méthode find dans le localStorage et comparaison avec les valeurs de l'objet userProductArray
+                // Condition si le produit comporte le même Id et la même couleur. Méthode find dans le localStorage et comparaison avec les valeurs de l'objet productObjet
 
                 let foundProduct = productLocalStorage.find(p => p.id == productObjet.id && p.color == productObjet.color);
                 //cherche élément sur un tableau par rapport à une condition .find
@@ -99,5 +100,5 @@ function addCart(){
 
 
 
-
+console.log(productObjet);
 
