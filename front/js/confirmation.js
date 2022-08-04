@@ -6,6 +6,7 @@ const id = url.searchParams.get("id");
 function numberConfirm() {
     const order = document.getElementById('orderId');
     order.innerHTML = id;
+    localStorage.clear();
 }
 numberConfirm(); 
  

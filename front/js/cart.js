@@ -265,40 +265,47 @@ function verifForm(){
 const formSubmit =  document.querySelector(".cart__order__form");
 formSubmit.addEventListener('submit' , (event)=>{
     event.preventDefault();
-    //Infos client stockage local pour confirmation
-    const order = {
-    contact: {
-      firstName: firstName.value,
-      lastName: lastName.value,
-      address: address.value,
-      city: city.value,
-      email: email.value,
-      },
-    // parcourir le tableau tout les id des produits 
-    products: itemLocalStorage.map((el) => el.id)
-    };
-    if (verifForm()){
-        //methode post
-        const post = {
-            method: 'POST',
-            headers:{
-                'content-Type':'application/json'
-            },
-            body: JSON.stringify(order),
-        }
-        console.log(post);
-        console.log(order);
-         //Appel à l'API "order" pour envoyer l'objet
-        fetch("http://localhost:3000/api/products/order", post)
-        .then((res) => res.json())
-        .then(data => {
-            console.log(data);
-            document.location.href = `confirmation.html?id=${data.orderId}`;
-        })
-        .catch((error) => {
-            console.log(`ERREUR requete POST : ${error}`);
-          });
-    };
+    
+    if (itemLocalStorage == null) {
+        alert('Votre panier est vide, nous ne pouvons valider le formulaire');
+        return;
+    } else {
+        if (verifForm()){
+            //Infos client stockage local pour confirmation
+        const order = {
+        contact: {
+          firstName: firstName.value,
+          lastName: lastName.value,
+          address: address.value,
+          city: city.value,
+          email: email.value,
+          },
+        // parcourir le tableau tout les id des produits 
+        products: itemLocalStorage.map((el) => el.id)
+        };
+            //methode post
+            const post = {
+                method: 'POST',
+                headers:{
+                    'content-Type':'application/json'
+                },
+                body: JSON.stringify(order),
+            }
+            console.log(post);
+            console.log(order);
+             //Appel à l'API "order" pour envoyer l'objet
+            fetch("http://localhost:3000/api/products/order", post)
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data);
+                document.location.href = `confirmation.html?id=${data.orderId}`;
+            })
+            .catch((error) => {
+                console.log(`ERREUR requete POST : ${error}`);
+              });
+        };
+    }
+    
 });
 
 
