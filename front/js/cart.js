@@ -128,7 +128,7 @@ function removeBtn(){
                 });
                 console.log(someProduct);
                 //Confirmation pour suppression de l'élément
-                if (window.confirm("Attention, ce produit va être supprimé du panier")){
+                if (window.confirm("Attention, ce produit va être supprimé dans le panier")){
                     localStorage.setItem("users", JSON.stringify(someProduct));
                     //rafraîchi la page
                     location.href = "cart.html";
@@ -149,7 +149,7 @@ function changeQuantity(){
             }
             const result = itemLocalStorage.find((el) => article.dataset.id === el.id && article.dataset.color === el.color)
             result.quantity = parseInt(quantity.value); 
-            if (window.confirm("Attention, ce produit va être modifier du panier")){
+            if (window.confirm("Attention, ce produit va être modifier dans le panier")){
                 localStorage.setItem("users", JSON.stringify(itemLocalStorage));
             location.href = "cart.html";
             }
@@ -267,7 +267,7 @@ formSubmit.addEventListener('submit' , (event)=>{
     event.preventDefault();
     
     if (itemLocalStorage == null) {
-        alert('Votre panier est vide, nous ne pouvons valider le formulaire');
+        alert('Votre panier est vide, nous ne pouvons pas valider le formulaire');
         return;
     } else {
         if (verifForm()){

@@ -4,10 +4,10 @@ async function getArticle() {
     try {
         const response = await fetch("http://localhost:3000/api/products");
         // une reponse de la bonne réception du lien
-        //console.log(response); 
+        console.log(response); 
         const getProduct = await response.json();
         // traduit en JSON : tableau contenant des objets
-        //console.log(getProduct);
+        console.log(getProduct);
     
         
         const items = document.getElementById("items");
